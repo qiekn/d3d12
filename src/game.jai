@@ -16,7 +16,7 @@ w_width :u32 = 800;
 w_height:u32 = 500;
 
 main :: () {
-    w_hwnd = Window.create_window(w_width, w_height, "Hello Sailor");
+    w_hwnd = Window.create_window(w_width, w_height, "ck: Hello Sailor");
 
     init_backend();
     init_device();
