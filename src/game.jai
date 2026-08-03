@@ -12,8 +12,8 @@ Input  :: #import "Input";
 
 // you can use any window module just we need the hwnd and window width/height
 w_hwnd  : HWND;
-w_width :u32 = 800;
-w_height:u32 = 500;
+w_width :u32 = 1200;
+w_height:u32 = 800;
 
 main :: () {
     w_hwnd = Window.create_window(w_width, w_height, "ck: Hello Sailor");
@@ -28,7 +28,12 @@ main :: () {
     while !quit { 
         Input.update_window_events();
         for Input.events_this_frame {
-            if it.type == .QUIT then quit = true;
+            if it.type == {
+                case .QUIT; quit = true;
+                case .KEYBOARD;
+                    if !it.key_pressed continue;
+                    if it.key_code == .ESCAPE then quit = true;
+            }
         }
 
         draw_one_frame();
@@ -784,7 +789,7 @@ compile_shader :: (source: string, entry_point: string, shader_model: string) ->
 // ------------------------------------------
 // Shaders
 //
-SHADER_TEXT :: #string DONE
+SHADER_TEXT :: #string QIEKN
 struct PSInput
 {
     float4 position : SV_POSITION;
@@ -792,7 +797,7 @@ struct PSInput
 };
 
 static float2 positions[3] = {
-    float2(0.0, 0.5),
+    float2(0.0, 1.0),
     float2(0.5, -0.5),
     float2(-0.5, -0.5)
 };
@@ -817,4 +822,4 @@ float4 PSMain(PSInput input) : SV_TARGET
 {
     return input.color;
 }
-DONE;
+QIEKN;
