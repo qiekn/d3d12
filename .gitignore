@@ -1,0 +1,10 @@
+.build/
+
+# just work for me
+.temp/
+.cache/
+.test/
+.refs/
+
+*.exe
+*.pdb
