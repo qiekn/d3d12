@@ -504,9 +504,8 @@ render_context_present :: () {
     ctx_active_buffer_index = IDXGISwapChain3_GetCurrentBackBufferIndex(d3d12_swapchain);
 }
 
-// -------------------------------------------------------
-// Pipeline
-//
+// ----------------------------------------------------------------------------: Pipeline
+
 d3d12_root_signature: *ID3D12RootSignature;
 d3d12_pipeline_state: *ID3D12PipelineState;
 
@@ -637,9 +636,8 @@ deinit_pipeline :: () {
 }
 
 
-//--------------------------------------------------------
-// Command Encoder: ID3D12CommandAllocator, ID3D12GraphicsCommandList
-//
+// ----------------------------------------------------------------------------: Command Encoder: ID3D12CommandAllocator, ID3D12GraphicsCommandList
+
 d3d12_command_allocator: *ID3D12CommandAllocator;
 d3d12_command_lists    : [FRAME_COUNT] *ID3D12GraphicsCommandList;
 d3d12_submit_fence     : *ID3D12Fence;
@@ -783,7 +781,7 @@ compile_shader :: (source: string, entry_point: string, shader_model: string) ->
 
 // ----------------------------------------------------------------------------: Shaders
 
-SHADER_TEXT :: #string QIEKN
+SHADER_TEXT :: #string END
 struct PSInput
 {
     float4 position : SV_POSITION;
@@ -816,4 +814,4 @@ float4 PSMain(PSInput input) : SV_TARGET
 {
     return input.color;
 }
-QIEKN;
+END;
