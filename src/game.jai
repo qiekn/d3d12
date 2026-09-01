@@ -144,17 +144,15 @@ draw_one_frame :: () {
 }
 
 
-//---------------------------------------------------------------------
-// Constants
-//
+// ----------------------------------------------------------------------------: Constants
 DEBUG          :: true;
 ASSERT_ON_FAIL :: true;
 BREAK_ON_ERROR :: false;
 FRAME_COUNT    :u32: 2;
 
-// ---------------------------------------------------------------------
-// Backend : IDXGIFactory4, IDXGIAdapter1
-//
+
+// ----------------------------------------------------------------------------: Backend : IDXGIFactory4, IDXGIAdapter1
+
 d3d12_factory: *IDXGIFactory4;
 d3d12_adapter: *IDXGIAdapter1;
 
@@ -245,9 +243,7 @@ deinit_backend :: () {
     if d3d12_adapter IUnknown_Release(d3d12_adapter);
 }
 
-// ---------------------------------------------------------------
-// Device : ID3D12Device, ID3D12CommandQueue, ID3D12InfoQueue
-//
+// ----------------------------------------------------------------------------: Device : ID3D12Device, ID3D12CommandQueue, ID3D12InfoQueue
 
 d3d12_device    : *ID3D12Device;
 d3d12_queue     : *ID3D12CommandQueue;
@@ -363,9 +359,8 @@ queue_wait_idle :: () {
     }
 }
 
-// --------------------------------------------------------
-// Render Context: IDXGISwapChain3, ID3D12Resource, ID3D12DescriptorHeap
-//
+// ----------------------------------------------------------------------------: Render Context: IDXGISwapChain3, ID3D12Resource, ID3D12DescriptorHeap
+
 VSYNC :: false;
 MAX_SWAPCHAIN_BUFFER_COUNT :: 3;
 
@@ -708,9 +703,8 @@ deinit_command_encoder :: () {
 }
 
 
-// -------------------------------------------------------
-// utils
-//
+// ----------------------------------------------------------------------------: Utils
+
 print_debug_msgs :: (d3d12_info_queue:*ID3D12InfoQueue) {
     if !d3d12_info_queue return;
     msgs_count := ID3D12InfoQueue_GetNumStoredMessages(d3d12_info_queue);
@@ -786,9 +780,9 @@ compile_shader :: (source: string, entry_point: string, shader_model: string) ->
     return bytecode, true;
 }
 
-// ------------------------------------------
-// Shaders
-//
+
+// ----------------------------------------------------------------------------: Shaders
+
 SHADER_TEXT :: #string QIEKN
 struct PSInput
 {
