@@ -108,7 +108,7 @@ draw_one_frame :: () {
         rtv_handle.ptr = rtv_handle.ptr + (ctx_active_buffer_index * d3d12_rtv_heap_inc_size);
         ID3D12GraphicsCommandList_OMSetRenderTargets(cmd_list, 1, *rtv_handle, .FALSE, null);
 
-        clear_color := float.[0.1, 0.2, 0.4, 1.0];
+        clear_color := float.[0.02, 0.15, 0.15, 1.0];
         ID3D12GraphicsCommandList_ClearRenderTargetView(cmd_list, rtv_handle, *clear_color, 0, null);
 
         // Draw
@@ -789,7 +789,7 @@ struct PSInput
 };
 
 static float2 positions[3] = {
-    float2(0.0, 1.0),
+    float2(0.0, 0.5),
     float2(0.5, -0.5),
     float2(-0.5, -0.5)
 };
