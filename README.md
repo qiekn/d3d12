@@ -1,4 +1,4 @@
-# Jai & Direct3D 12
+# Jai D3D12 Real-Time Renderer 
 
 ## Start
 
